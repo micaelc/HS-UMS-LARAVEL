@@ -8,7 +8,7 @@
     <meta name="author" content="Micael Campos">
     <meta name="_token" content="{!! csrf_token() !!}"/>
 
-    <title>ASACPT - ADMIN - {{ $title }}</title>
+    <title>BASE Project - ADMIN - {{ $title }}</title>
     <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/back.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet">
@@ -35,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{route('admin:admin')}}">Base Project</a>
+            <a class="navbar-brand" href="{{route('admin:admin')}}"><img src="../img/dummy_logo_admin.png"></a>
         </div>
         <!-- /.navbar-header -->
 

@@ -34,12 +34,11 @@ body {
   min-height: 50px;
   color: #eeeeee;
 }
-.navbar-top-links li a:hover {
+.navbar-top-links li a:hover,
+.navbar-top-links li a:active,
+.navbar-top-links li a:focus {
   background-color: #333333;
   color: #5bc0de;
-}
-.navbar-top-links li a:active {
-  background-color: #333333;
 }
 .navbar-top-links .dropdown-menu li {
   display: block;
@@ -86,7 +85,9 @@ body {
 .sidebar ul li a {
   color: #eeeeee;
 }
-.sidebar ul li a:hover {
+.sidebar ul li a:hover,
+.sidebar ul li a:active,
+.sidebar ul li a:focus {
   background: #333333;
   color: #5bc0de;
 }
@@ -122,7 +123,9 @@ body {
 .dropdown-menu li a {
   background-color: #333333 !important;
 }
-.dropdown-menu li a:hover {
+.dropdown-menu li a:hover,
+.dropdown-menu li a:active,
+.dropdown-menu li a:focus {
   color: #5bc0de !important;
 }
 @media (min-width: 768px) {
@@ -308,4 +311,7 @@ table.dataTable thead .sorting:after {
 .navbar-default {
   background-color: #333333;
   border-color: #222222;
+}
+.navbar-brand {
+  padding: 5px !important;
 }

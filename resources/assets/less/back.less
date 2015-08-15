@@ -50,12 +50,9 @@ body {
 	padding: 15px;
 	min-height: 50px;
 	color: @gray-lighter;
-	&:hover{
+	&:hover, &:active, &:focus{
 		background-color: @gray-dark;
 		color: @brand-info;
-	}
-	&:active{
-		background-color: @gray-dark;
 	}
 }
 
@@ -117,7 +114,7 @@ body {
 	border-bottom: 1px solid darken(@gray-dark, 6.5%);
 	a {
 		color: @gray-lighter;
-		&:hover{
+		&:hover, &:active, &:focus{
 			background: @gray-dark;
 			color: @brand-info;
 		}
@@ -162,7 +159,7 @@ body {
 	}
 	li a{
 		background-color: @gray-dark !important;
-		&:hover{
+		&:hover, &:active, &:focus{
 			color: @brand-info !important;
 		}
 	}
@@ -399,4 +396,8 @@ table.dataTable thead .sorting:after {
 .navbar-default{
 	background-color: @gray-dark;
 	border-color: @gray-darker;
+}
+
+.navbar-brand {
+	padding: 5px !important;
 }
