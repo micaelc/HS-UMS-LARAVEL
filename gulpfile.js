@@ -21,7 +21,6 @@ elixir(function (mix) {
         .less('login.less', 'public/css/login.css')
 
 
-        .scriptsIn('resources/assets/bower/bootstrap-less/js', 'public/js/bootstrap.js')
         .scripts('back.js', 'public/js/back.js')
 
         .copy('resources/assets/bower/fontawesome/fonts', 'public/fonts')
