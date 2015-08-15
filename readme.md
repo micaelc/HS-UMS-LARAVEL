@@ -44,15 +44,25 @@ Aliases
 
 ## Install
 
+inside the project folder
+
 ```sh
 composer install
 composer update
+
 php artisan ide-helper:generate
 php artisan vendor:publish
+
 php artisan entrust:migration
 php artisan migrate
 php artisan db:seed
 composer dump-autoload
+
+npm install
+bower install bootstrap-less
+bower install jquery
+bower install fontawesome
+gulp
 ```
 
 # This Project uses:

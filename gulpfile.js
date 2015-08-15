@@ -11,6 +11,20 @@ var elixir = require('laravel-elixir');
  |
  */
 
-elixir(function(mix) {
-    mix.sass('app.scss');
+// disable source maps
+elixir.config.sourcemaps = false;
+
+elixir(function (mix) {
+    mix.less('../bower/bootstrap-less/less/bootstrap.less', 'public/css/bootstrap.css')
+        .less('front.less', 'public/css/front.css')
+        .less('back.less', 'public/css/back.css')
+        .less('login.less', 'public/css/login.css')
+
+
+        .scriptsIn('resources/assets/bower/bootstrap-less/js', 'public/js/bootstrap.js')
+        .scripts('back.js', 'public/js/back.js')
+
+        .copy('resources/assets/bower/fontawesome/fonts', 'public/fonts')
+        .copy('resources/assets/bower/fontawesome/css/font-awesome.css', 'public/css')
+        .copy('resources/assets/bower/jquery/dist/jquery.js', 'public/js');
 });
