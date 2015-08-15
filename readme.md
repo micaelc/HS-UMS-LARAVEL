@@ -10,18 +10,62 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+## Laravel Official Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+# Base Project with user management
+
+## Added Dependencies to composer.json
+
+Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
+Forms & HTML - http://laravelcollective.com/
+IDE Helper - https://github.com/barryvdh/laravel-ide-helper
+Easy toastr notifications for Laravel 5 - https://github.com/oriceon/toastr-5-laravel
+
+
+"zizaco/entrust": "dev-laravel-5",
+"laravelcollective/html": "5.1.*",
+"barryvdh/laravel-ide-helper": "^2.0",
+"oriceon/toastr-5-laravel": "dev-master"
+
+
+### added to app.php
+
+Providers
+    /*
+    * 3rd Party Service Providers...
+    */
+    Zizaco\Entrust\EntrustServiceProvider::class,
+    Collective\Html\HtmlServiceProvider::class,
+    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+    Kamaln7\Toastr\ToastrServiceProvider::class,
+
+
+Aliases
+
+    /*
+    * 3rd Party Aliases...
+    */
+
+    'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+    'Carbon' => Carbon\Carbon::class,
+    'Form' => Collective\Html\FormFacade::class,
+    'Html' => Collective\Html\HtmlFacade::class,
+    'Toastr' => Kamaln7\Toastr\Facades\Toastr::class,
+
+
+## Install
+
+	composer install
+	composer update
+	php artisan ide-helper:generate
+	php artisan vendor:publish
+	php artisan entrust:migration
+	php artisan migrate
+	php artisan db:seed
+	composer dump-autoload
