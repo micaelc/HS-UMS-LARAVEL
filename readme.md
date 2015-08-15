@@ -1,3 +1,61 @@
+# Base Project with user management
+
+## Added Dependencies to composer.json
+
+* Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
+* Forms and HTML - http://laravelcollective.com/
+* IDE Helper - https://github.com/barryvdh/laravel-ide-helper
+* Easy toastr notifications for Laravel 5 - https://github.com/oriceon/toastr-5-laravel
+
+```php
+"zizaco/entrust": "dev-laravel-5",
+"laravelcollective/html": "5.1.*",
+"barryvdh/laravel-ide-helper": "^2.0",
+"oriceon/toastr-5-laravel": "dev-master"
+```
+
+### added to app.php
+
+Providers
+
+```php
+/*
+* 3rd Party Service Providers...
+*/
+Zizaco\Entrust\EntrustServiceProvider::class,
+Collective\Html\HtmlServiceProvider::class,
+Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+Kamaln7\Toastr\ToastrServiceProvider::class,
+```
+
+Aliases
+
+```php
+/*
+* 3rd Party Aliases...
+*/
+
+'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+'Carbon' => Carbon\Carbon::class,
+'Form' => Collective\Html\FormFacade::class,
+'Html' => Collective\Html\HtmlFacade::class,
+'Toastr' => Kamaln7\Toastr\Facades\Toastr::class,
+```
+
+## Install
+
+```sh
+composer install
+composer update
+php artisan ide-helper:generate
+php artisan vendor:publish
+php artisan entrust:migration
+php artisan migrate
+php artisan db:seed
+composer dump-autoload
+```
+
+# This Project uses:
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
@@ -17,55 +75,3 @@ Documentation for the framework can be found on the [Laravel website](http://lar
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-# Base Project with user management
-
-## Added Dependencies to composer.json
-
-Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
-Forms & HTML - http://laravelcollective.com/
-IDE Helper - https://github.com/barryvdh/laravel-ide-helper
-Easy toastr notifications for Laravel 5 - https://github.com/oriceon/toastr-5-laravel
-
-
-"zizaco/entrust": "dev-laravel-5",
-"laravelcollective/html": "5.1.*",
-"barryvdh/laravel-ide-helper": "^2.0",
-"oriceon/toastr-5-laravel": "dev-master"
-
-
-### added to app.php
-
-Providers
-    /*
-    * 3rd Party Service Providers...
-    */
-    Zizaco\Entrust\EntrustServiceProvider::class,
-    Collective\Html\HtmlServiceProvider::class,
-    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-    Kamaln7\Toastr\ToastrServiceProvider::class,
-
-
-Aliases
-
-    /*
-    * 3rd Party Aliases...
-    */
-
-    'Entrust' => Zizaco\Entrust\EntrustFacade::class,
-    'Carbon' => Carbon\Carbon::class,
-    'Form' => Collective\Html\FormFacade::class,
-    'Html' => Collective\Html\HtmlFacade::class,
-    'Toastr' => Kamaln7\Toastr\Facades\Toastr::class,
-
-
-## Install
-
-	composer install
-	composer update
-	php artisan ide-helper:generate
-	php artisan vendor:publish
-	php artisan entrust:migration
-	php artisan migrate
-	php artisan db:seed
-	composer dump-autoload
