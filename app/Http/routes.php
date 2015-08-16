@@ -22,6 +22,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin:'], function () {
     Route::get('/dashboard', ['as' => 'dashboard','uses' => 'BackController@dashboard']);
 });
 
+Route::resource('roles', 'RoleController', ['only' => 'index']);
+
 
 // ### Auth Routes ###
 Route::get('auth/login', 'Auth\AuthController@getLogin');

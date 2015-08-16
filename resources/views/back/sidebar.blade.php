@@ -12,7 +12,7 @@
 						<a href="#"><i class="fa fa-users fa-fw"></i>{{ trans('back.users') }}</a>
 					</li>
 					<li>
-						<a href="#"><i class="fa fa-tags fa-fw"></i>{{ trans('back.roles') }}</a>
+						<a href="{{ route('roles.index') }}"><i class="fa fa-tags fa-fw"></i>{{ trans('back.roles') }}</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->

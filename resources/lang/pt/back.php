@@ -16,6 +16,16 @@ return [
     'dashboard' => ' Dashboard',
     'administration' => ' Administração',
     'users' => ' Utilizadores',
-    'roles' => ' Papeis',
+    'roles' => ' Funções',
+
+    // ### Lists
+    'lists' => [
+        'name' => 'Nome Único',
+        'display_name' => 'Nome',
+        'description' => 'Descrição',
+        'created_at' => 'Criado em',
+        'updated_at' => 'Alterado em',
+        'options' => 'Opções',
+    ],
 
 ];

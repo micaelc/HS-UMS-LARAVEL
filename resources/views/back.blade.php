@@ -73,8 +73,11 @@
 <!-- Vendor.js -->
 <script src="{{ asset('/js/jquery.js') }}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Toaster JavaScript -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<!-- Metis Menu JavaScript -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.1.0/metisMenu.min.js"></script>
+<!-- Custom JavaScript -->
 <script src="{{ asset('/js/back.js') }}"></script>
 {!! Toastr::render() !!}
 
