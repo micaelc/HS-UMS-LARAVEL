@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Password Reminder Language Lines
@@ -12,11 +10,9 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'user' => "We can't find a user with that e-mail address.",
-    'token' => 'This password reset token is invalid.',
-    'sent' => 'We have e-mailed your password reset link!',
-    'reset' => 'Your password has been reset!',
-
+    "password" => "A palavra-passe deverá conter pelo menos seis carateres e ser igual à confirmação.",
+    "user"     => "Não existe nenhum utilizador com o endereço de correio eletrónico indicado.",
+    "token"    => "Este código de recuperação da palavra-passe é inválido.",
+    "sent"     => "O lembrete para a palavra-passe foi enviado!",
+    "reset"    => "A palavra-passe foi redefinida!",
 ];
