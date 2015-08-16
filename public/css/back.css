@@ -315,3 +315,11 @@ table.dataTable thead .sorting:after {
 .navbar-brand {
   padding: 5px !important;
 }
+.navbar-toggle {
+  border-color: #222222 !important;
+  color: #eeeeee !important;
+}
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background-color: #222222 !important;
+}

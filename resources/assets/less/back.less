@@ -50,7 +50,7 @@ body {
 	padding: 15px;
 	min-height: 50px;
 	color: @gray-lighter;
-	&:hover, &:active, &:focus{
+	&:hover, &:active, &:focus {
 		background-color: @gray-dark;
 		color: @brand-info;
 	}
@@ -114,7 +114,7 @@ body {
 	border-bottom: 1px solid darken(@gray-dark, 6.5%);
 	a {
 		color: @gray-lighter;
-		&:hover, &:active, &:focus{
+		&:hover, &:active, &:focus {
 			background: @gray-dark;
 			color: @brand-info;
 		}
@@ -151,15 +151,15 @@ body {
 	background-color: @gray-dark !important;
 }
 
-.dropdown-menu{
+.dropdown-menu {
 	background-color: @gray-dark !important;
 	border-color: @gray-darker !important;
-	.divider{
+	.divider {
 		background-color: @gray-darker !important;
 	}
-	li a{
+	li a {
 		background-color: @gray-dark !important;
-		&:hover, &:active, &:focus{
+		&:hover, &:active, &:focus {
 			color: @brand-info !important;
 		}
 	}
@@ -393,11 +393,20 @@ table.dataTable thead .sorting:after {
 	}
 }
 
-.navbar-default{
+.navbar-default {
 	background-color: @gray-dark;
 	border-color: @gray-darker;
 }
 
 .navbar-brand {
 	padding: 5px !important;
+}
+
+.navbar-toggle {
+	border-color: @gray-darker !important;
+	color: @gray-lighter !important;
+	&:hover, &:focus {
+		background-color: @gray-darker !important;
+	}
+
 }
