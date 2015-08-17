@@ -61,7 +61,7 @@ php artisan migrate
 php artisan db:seed
 composer dump-autoload
 
-npm install
+npm install or npm install --no-bin-links (on windows)
 bower install bootstrap-less
 bower install jquery
 bower install fontawesome
