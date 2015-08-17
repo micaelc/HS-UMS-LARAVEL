@@ -1,5 +1,8 @@
 # Base Project with user management
 
+#### Work in Progress
+#### v0.1
+
 ## Added Dependencies to composer.json
 
 * Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
