@@ -1,5 +1,8 @@
 # Base Project with user management
 
+#### Work in Progress
+#### v0.1
+
 ## Added Dependencies to composer.json
 
 * Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
@@ -44,25 +47,24 @@ Aliases
 
 ## Install
 
-inside the project folder
+inside the project folder and after creating a .env file with the database configs
+
+you will require Node Bower and Gulp installed prior to this
 
 ```sh
 composer install
 composer update
 
-php artisan ide-helper:generate
-php artisan vendor:publish
-
-php artisan entrust:migration
 php artisan migrate
 php artisan db:seed
 composer dump-autoload
 
-npm install
+npm install or npm install --no-bin-links (on windows)
 bower install bootstrap-less
 bower install jquery
 bower install fontawesome
 gulp
+php artisan key:generate
 ```
 
 # This Project uses:
