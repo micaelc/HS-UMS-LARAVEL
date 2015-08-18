@@ -3,7 +3,6 @@ $.ajaxSetup({
 });
 
 $(function() {
-
     $('#side-menu').metisMenu();
 
 });
