@@ -149,7 +149,6 @@ return [
         */
         Zizaco\Entrust\EntrustServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Kamaln7\Toastr\ToastrServiceProvider::class,
 
     ],

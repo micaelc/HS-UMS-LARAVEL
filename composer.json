@@ -9,7 +9,6 @@
         "laravel/framework": "5.1.*",
         "zizaco/entrust": "dev-laravel-5",
         "laravelcollective/html": "5.1.*",
-        "barryvdh/laravel-ide-helper": "^2.0",
         "oriceon/toastr-5-laravel": "dev-master"
     },
     "require-dev": {

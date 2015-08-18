@@ -7,13 +7,11 @@
 
 * Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
 * Forms and HTML - http://laravelcollective.com/
-* IDE Helper - https://github.com/barryvdh/laravel-ide-helper
 * Easy toastr notifications for Laravel 5 - https://github.com/oriceon/toastr-5-laravel
 
 ```php
 "zizaco/entrust": "dev-laravel-5",
 "laravelcollective/html": "5.1.*",
-"barryvdh/laravel-ide-helper": "^2.0",
 "oriceon/toastr-5-laravel": "dev-master"
 ```
 
@@ -27,7 +25,6 @@ Providers
 */
 Zizaco\Entrust\EntrustServiceProvider::class,
 Collective\Html\HtmlServiceProvider::class,
-Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 Kamaln7\Toastr\ToastrServiceProvider::class,
 ```
 
@@ -54,17 +51,16 @@ you will require Node Bower and Gulp installed prior to this
 ```sh
 composer install
 composer update
+php artisan key:generate
 
 php artisan migrate
 php artisan db:seed
 composer dump-autoload
 
-npm install or npm install --no-bin-links (on windows)
-bower install bootstrap-less
-bower install jquery
-bower install fontawesome
+npm install [or npm install --no-bin-links (on windows)]
+bower install
 gulp
-php artisan key:generate
+
 ```
 
 # This Project uses:
