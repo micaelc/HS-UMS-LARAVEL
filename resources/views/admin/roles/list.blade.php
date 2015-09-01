@@ -32,7 +32,9 @@
 									<td>{{$role->created_at}}</td>
 									<td>{{$role->updated_at}}</td>
 									<td>
-										<a href="#"><i class="fa fa-pencil fa-fw"></i></a>
+										<a href="#" data-toggle="tooltip" title="{{ trans('back.tooltip.edit') }}"><i class="fa fa-pencil fa-fw"></i></a>
+										<a href="{{route('roles.show',$role->id)}}" data-toggle="tooltip" title="{{ trans('back.tooltip.show') }}"> <i
+													class="fa fa-eye fa-fw"> </i></a>
 									</td>
 								</tr>
 							@endforeach

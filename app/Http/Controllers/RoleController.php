@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
 
@@ -51,7 +52,12 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        $role = Role::findOrNew($id);
+        $permissions = $role->perms;
+
+        dump($permissions);
+
+
     }
 
     /**

@@ -20,6 +20,7 @@ class Permission extends EntrustPermission
      * @var array
      */
     protected $fillable = [
+        'context',
         'name',
         'display_name',
         'description'

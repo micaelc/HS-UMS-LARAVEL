@@ -20,12 +20,19 @@ return [
 
     // ### Lists
     'lists' => [
-        'name' => 'Nome Único',
+        'name' => 'Abreviatura',
         'display_name' => 'Nome',
         'description' => 'Descrição',
         'created_at' => 'Criado em',
         'updated_at' => 'Alterado em',
         'options' => 'Opções',
+    ],
+
+    // ### Tooltips
+    'tooltip' => [
+        'edit' => 'Editar',
+        'show' => 'Ver',
+
     ],
 
 ];

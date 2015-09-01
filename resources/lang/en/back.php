@@ -29,5 +29,12 @@ return [
         'options' => 'Options',
     ],
 
+    // ### Tooltips
+    'tooltip' => [
+        'edit' => 'edit',
+        'show' => 'Show',
+
+    ],
+
 
 ];

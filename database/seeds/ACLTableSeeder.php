@@ -19,12 +19,14 @@ class ACLTableSeeder extends Seeder
          */
 
         $perm1 = Permission::create([
+            'context' => 'user',
             'name' => 'edit_profile',
             'display_name' => 'Edit Profile',
             'description' => 'Ability to edit user profile'
         ]);
 
         $perm2 = Permission::create([
+            'context' => 'user',
             'name' => 'edit_user',
             'display_name' => 'Edit Users',
             'description' => ''
