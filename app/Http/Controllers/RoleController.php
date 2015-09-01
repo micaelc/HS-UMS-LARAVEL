@@ -6,7 +6,6 @@ use App\Role;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Kamaln7\Toastr\Facades\Toastr;
 
 class RoleController extends Controller
