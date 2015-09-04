@@ -32,6 +32,13 @@ class ACLTableSeeder extends Seeder
             'description' => ''
         ]);
 
+        $perm3 = Permission::create([
+            'context' => 'atest',
+            'name' => 'a_test',
+            'display_name' => 'only a test',
+            'description' => ''
+        ]);
+
         /**
          *   R O L E S
          */
@@ -41,6 +48,7 @@ class ACLTableSeeder extends Seeder
             'display_name' => 'Administrator',
             'description' => 'Administrator Role'
         ]);
+        $role1->attachPermissions([$perm1->id, $perm2->id]);
 
         $role2 = Role::create([
             'name' => 'manager',
