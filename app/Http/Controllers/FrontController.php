@@ -15,7 +15,7 @@ class FrontController extends Controller
     }
 
     public function home(){
-        $title = 'Home';
+        $title = trans('app.pages.home');
         return view('front.home', compact('title'));
     }
 }

@@ -2,17 +2,17 @@
 	<div class="sidebar-nav navbar-collapse">
 		<ul class="nav" id="side-menu">
 			<li>
-				<a href="{{route('admin:dashboard')}}"><i class="fa fa-dashboard fa-fw"></i>{{ trans('back.dashboard') }}</a>
+				<a href="{{route('admin:dashboard')}}"><i class="fa fa-dashboard fa-fw"></i>{{ trans('back.pages.dashboard') }}</a>
 			</li>
 			@if( Auth::user()->hasRole('admin') )
 			<li>
-				<a href="#"><i class="fa fa-gears fa-fw"></i>{{ trans('back.administration') }}<span class="fa arrow"></span></a>
+				<a href="#"><i class="fa fa-gears fa-fw"></i>{{ trans('back.pages.administration') }}<span class="fa arrow"></span></a>
 				<ul class="nav nav-second-level">
 					<li>
-						<a href="#"><i class="fa fa-users fa-fw"></i>{{ trans('back.users') }}</a>
+						<a href="{{ route('users.index') }}"><i class="fa fa-users fa-fw"></i>{{ trans('back.pages.users') }}</a>
 					</li>
 					<li>
-						<a href="{{ route('roles.index') }}"><i class="fa fa-tags fa-fw"></i>{{ trans('back.roles') }}</a>
+						<a href="{{ route('roles.index') }}"><i class="fa fa-tags fa-fw"></i>{{ trans('back.pages.roles') }}</a>
 					</li>
 				</ul>
 				<!-- /.nav-second-level -->

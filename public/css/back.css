@@ -326,3 +326,8 @@ table.dataTable thead .sorting:after {
 .spacer {
   margin-top: 30px;
 }
+.button-nostyle {
+  border: none;
+  background-color: inherit;
+  color: #337ab7;
+}

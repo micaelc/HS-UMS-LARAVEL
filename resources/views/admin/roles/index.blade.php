@@ -10,6 +10,11 @@
 				</div>
 			</div>
 			<div class="row">
+				<a class="btn btn-primary pull-right" href="#">
+					<i class="fa fa-plus fa-fw"></i> {{ trans('back.headers.newRole') }}
+				</a>
+			</div>
+			<div class="row">
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table class="table">

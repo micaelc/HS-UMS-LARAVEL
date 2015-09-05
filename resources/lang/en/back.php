@@ -12,12 +12,13 @@ return [
     'user-profile' => ' User Profile',
     'logout' => ' Logout',
 
-    // ### Sidebar Menu
-    'dashboard' => ' Dashboard',
-    'administration' => ' Administration',
-    'users' => ' Users',
-    'roles' => ' Roles',
-
+    // ### Pages
+    'pages' => [
+        'dashboard' => ' Dashboard',
+        'administration' => ' Administration',
+        'users' => ' Users',
+        'roles' => ' Roles',
+    ],
 
     // ### Lists
     'lists' => [
@@ -37,6 +38,7 @@ return [
     'tooltip' => [
         'edit' => 'edit',
         'show' => 'Show',
+        'activate' => 'Activate / Deactivate'
 
     ],
 
@@ -44,6 +46,8 @@ return [
     'headers' => [
         'permissions' => 'Permissions',
         'users' => 'Users',
+        'newUser' => 'Add New User',
+        'newRole' => 'Add New Role',
 
     ],
 

@@ -2,22 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Permission;
-use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Log;
-use Kamaln7\Toastr\Facades\Toastr;
 
-class RoleController extends Controller
+
+class UserController extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,9 +23,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
-        $title = trans('back.pages.roles');
-        return view('admin.roles.index', compact('roles', 'title'));
+        $title = trans('back.pages.users');
+        $users = User::all();
+
+        return view('admin.users.index', compact('title','users' ));
+
     }
 
     /**
@@ -59,13 +59,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        $title = trans('back.pages.roles');
-        $role = Role::findOrNew($id);
-        $users = $this->usersWithRole($role);
-        //$permissions = $role->perms;
-        $permList = $this->rolePermissionList($role);
-
-        return view('admin.roles.show', compact('role', 'permList', 'users', 'title'));
+        //
     }
 
     /**
@@ -100,29 +94,5 @@ class RoleController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    private function usersWithRole ($role){
-
-        $users = User::all()->filter(function ($item) use ($role){
-            return $item->hasRole($role->name);
-        });
-
-        return $users;
-    }
-
-    private function rolePermissionList ($role){
-
-        $permList = Permission::all()->sortBy('context');
-
-        foreach ($permList as $perm){
-            if ($role->hasPermission($perm->name)){
-                $perm->checked = true;
-            }
-        }
-
-        $permList = $permList->groupBy('context');
-
-        return $permList;
     }
 }

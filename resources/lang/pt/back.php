@@ -12,11 +12,13 @@ return [
     'user-profile' => ' Perfil',
     'logout' => ' Sair',
 
-    // ### Sidebar Menu
-    'dashboard' => ' Dashboard',
-    'administration' => ' Administração',
-    'users' => ' Utilizadores',
-    'roles' => ' Funções',
+    // ### Pages
+    'pages' => [
+        'dashboard' => ' Dashboard',
+        'administration' => ' Administração',
+        'users' => ' Utilizadores',
+        'roles' => ' Funções',
+    ],
 
     // ### Lists
     'lists' => [
@@ -36,13 +38,15 @@ return [
     'tooltip' => [
         'edit' => 'Editar',
         'show' => 'Ver',
-
+        'activate' => 'Ativar / Desativar'
     ],
 
     // ### Headers
     'headers' => [
         'permissions' => 'Permissões',
         'users' => 'Utilizadores',
+        'newUser' => 'Novo Utilizador',
+        'newRole' => 'Nova Função',
 
     ],
 
