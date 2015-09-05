@@ -323,3 +323,6 @@ table.dataTable thead .sorting:after {
 .navbar-toggle:focus {
   background-color: #222222 !important;
 }
+.spacer {
+  margin-top: 30px;
+}

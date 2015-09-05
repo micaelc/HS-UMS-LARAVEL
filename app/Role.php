@@ -13,6 +13,9 @@ use Zizaco\Entrust\EntrustRole;
 
 class Role extends EntrustRole
 {
+    // to be removed when Entrust implements hasPermission() method
+    use HsEntrustTrait;
+
     /**
      * The attributes that are mass assignable.
      *

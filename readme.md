@@ -13,6 +13,7 @@
 "zizaco/entrust": "dev-laravel-5",
 "laravelcollective/html": "5.1.*",
 "oriceon/toastr-5-laravel": "dev-master"
+"barryvdh/laravel-ide-helper": "^2.1"
 ```
 
 ### added to app.php
@@ -26,6 +27,7 @@ Providers
 Zizaco\Entrust\EntrustServiceProvider::class,
 Collective\Html\HtmlServiceProvider::class,
 Kamaln7\Toastr\ToastrServiceProvider::class,
+Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 ```
 
 Aliases

@@ -26,12 +26,23 @@ return [
         'created_at' => 'Criado em',
         'updated_at' => 'Alterado em',
         'options' => 'Opções',
+        'email' => 'E-Mail',
+        'status' => 'Estado',
+        'active' => 'Activo',
+        'inactive' => 'Inactivo',
     ],
 
     // ### Tooltips
     'tooltip' => [
         'edit' => 'Editar',
         'show' => 'Ver',
+
+    ],
+
+    // ### Headers
+    'headers' => [
+        'permissions' => 'Permissões',
+        'users' => 'Utilizadores',
 
     ],
 
