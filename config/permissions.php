@@ -11,8 +11,10 @@ return[
     // ### List permissions by context
 
     'user'=> [
-        'edit_profile' => 'edit_profile',
-        'edit_user' => 'edit_user',
+        'profile_edit' => 'profile_edit',
+        'profile_view' => 'profile_view',
+        'user_edit' => 'user_edit',
+
     ]
 
 

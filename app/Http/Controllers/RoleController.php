@@ -113,7 +113,7 @@ class RoleController extends Controller
 
     private function rolePermissionList ($role){
 
-        $permList = Permission::all()->sortBy('context');
+        $permList = Permission::all()->sortBy('name');
 
         foreach ($permList as $perm){
             if ($role->hasPermission($perm->name)){
@@ -121,7 +121,7 @@ class RoleController extends Controller
             }
         }
 
-        $permList = $permList->groupBy('context');
+        $permList = $permList->groupBy('context')->sortBy('name');
 
         return $permList;
     }
