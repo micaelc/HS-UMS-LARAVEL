@@ -76,6 +76,7 @@ class ACLTableSeeder extends Seeder
             'status' => true
         ]);
         $user1->attachRole($role1);
+        $user1->attachRole($role2);
 
         $user2 = User::create([
             'firstName' => 'Manager',

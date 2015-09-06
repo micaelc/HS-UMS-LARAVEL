@@ -9,11 +9,13 @@
 * Forms and HTML - http://laravelcollective.com/
 * Easy toastr notifications for Laravel 5 - https://github.com/oriceon/toastr-5-laravel
 
+
 ```php
 "zizaco/entrust": "dev-laravel-5",
 "laravelcollective/html": "5.1.*",
 "oriceon/toastr-5-laravel": "dev-master"
 "barryvdh/laravel-ide-helper": "^2.1"
+"doctrine/dbal": "~2.3"
 ```
 
 ### added to app.php

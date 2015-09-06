@@ -24,7 +24,7 @@ class UserController extends Controller
     public function index()
     {
         $title = trans('back.pages.users');
-        $users = User::all();
+        $users = User::with('roles')->get();
 
         return view('admin.users.index', compact('title','users' ));
 
@@ -59,7 +59,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $title = trans('back.pages.users');
+        $user = User::with('roles')->findOrFail($id);
+
+        return view('admin.users.show', compact('title','user' ));
     }
 
     /**

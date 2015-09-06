@@ -20,8 +20,9 @@
 						<table class="table table-users">
 							<thead>
 							<tr>
-								<th>{{ trans('back.lists.name') }}</th>
+								<th>{{ trans('back.lists.userName') }}</th>
 								<th>{{ trans('back.lists.email') }}</th>
+								<th>{{ trans('back.lists.roles') }}</th>
 								<th>{{ trans('back.lists.status') }}</th>
 								<th>{{ trans('back.lists.created_at') }}</th>
 								<th>{{ trans('back.lists.updated_at') }}</th>
@@ -33,6 +34,11 @@
 								<tr>
 									<td>{{$user->firstName}} {{$user->lastName}}</td>
 									<td>{{$user->email}}</td>
+									<td>
+										@foreach($user->roles as $role)
+											<span class="label label-primary">{{$role->name}}</span>
+										@endforeach
+									</td>
 									<td>{{$user->status ? trans('back.lists.active') : trans('back.lists.inactive') }}</td>
 									<td>{{$user->created_at}}</td>
 									<td>{{$user->updated_at}}</td>
@@ -50,14 +56,12 @@
 										<a href="{{route('users.show',$user->id)}}" data-toggle="tooltip"
 										   title="{{ trans('back.tooltip.show') }}"> <i
 													class="fa fa-eye fa-fw"> </i></a>
-
 									</td>
 								</tr>
 							@endforeach
 							</tbody>
 						</table>
 					</div>
-					<!-- /.table-responsive -->
 				</div>
 			</div>
 		</div>

@@ -23,6 +23,7 @@ return [
     // ### Lists
     'lists' => [
         'name' => 'Abreviatura',
+        'userName' => 'Nome',
         'display_name' => 'Nome',
         'description' => 'Descrição',
         'created_at' => 'Criado em',
@@ -32,6 +33,15 @@ return [
         'status' => 'Estado',
         'active' => 'Activo',
         'inactive' => 'Inactivo',
+        'roles' =>'Funções',
+    ],
+
+    // ### User
+    'user' => [
+        'firstName' => 'Primeiro Nome',
+        'lastName' => 'Último Nome',
+        'email' => 'E-Mail',
+        'status' => 'Ativo',
     ],
 
     // ### Tooltips
