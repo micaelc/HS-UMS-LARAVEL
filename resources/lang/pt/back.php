@@ -34,6 +34,7 @@ return [
         'active' => 'Activo',
         'inactive' => 'Inactivo',
         'roles' =>'Funções',
+        'back' => 'Voltar',
     ],
 
     // ### User

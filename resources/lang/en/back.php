@@ -33,7 +33,8 @@ return [
         'status' => 'Status',
         'active' => 'Active',
         'inactive' => 'Inactive',
-        'roles' =>'Roles',
+        'roles' => 'Roles',
+        'back' => 'Back',
     ],
 
     // ### User
