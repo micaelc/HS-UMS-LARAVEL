@@ -95,7 +95,11 @@
 													<td>{{$user->status ? trans('back.lists.active') : trans('back.lists.inactive') }}</td>
 													<td>{{$user->created_at}}</td>
 													<td>{{$user->updated_at}}</td>
-													<td></td>
+													<td>
+														<a href="#" data-toggle="tooltip"
+														   title="{{ trans('back.tooltip.edit') }}"> <i
+																	class="fa fa-pencil fa-fw"> </i></a>
+													</td>
 												</tr>
 											@endforeach
 											</tbody>

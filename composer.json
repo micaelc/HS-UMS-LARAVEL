@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "zizaco/entrust": "dev-laravel-5",
+        "zizaco/entrust": "1.4.1",
         "laravelcollective/html": "5.1.*",
         "oriceon/toastr-5-laravel": "dev-master",
         "barryvdh/laravel-ide-helper": "^2.1",
