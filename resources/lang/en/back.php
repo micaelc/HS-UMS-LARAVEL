@@ -8,6 +8,13 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    // ### Login
+    'login' => [
+        'email-address' => 'Email address',
+        'password' => 'Password',
+        'remember' => 'Remember me',
+    ],
+
     // ### Top bar
     'user-profile' => ' User Profile',
     'logout' => ' Logout',

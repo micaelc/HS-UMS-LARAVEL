@@ -8,6 +8,13 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    // ### Login
+    'login' => [
+        'email-address' => 'Endereço de Email',
+        'password' => 'Palavra Chave',
+        'remember' => 'Lembrar',
+    ],
+
     // ### Top bar
     'user-profile' => ' Perfil',
     'logout' => ' Sair',
@@ -33,7 +40,7 @@ return [
         'status' => 'Estado',
         'active' => 'Activo',
         'inactive' => 'Inactivo',
-        'roles' =>'Funções',
+        'roles' => 'Funções',
         'back' => 'Voltar',
     ],
 

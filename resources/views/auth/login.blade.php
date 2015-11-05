@@ -37,11 +37,11 @@
                         <fieldset>
                             <div class="form-group">
                                 <input type="email" name="email" id="email" class="form-control"
-                                       placeholder="Email address" required autofocus value="{{ old('email') }}">
+                                       placeholder="{{ trans('back.login.email-address') }}" required autofocus value="{{ old('email') }}">
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" id="password" class="form-control"
-                                       placeholder="Password" required>
+                                       placeholder="{{ trans('back.login.password') }}" required>
                             </div>
                             <div>
                                 @if (count($errors) > 0)
@@ -54,7 +54,7 @@
                             </div>
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" value="remember-me"> Remember me
+                                    <input id="remember" type="checkbox" value="remember"> {{ trans('back.login.remember') }}
                                 </label>
                             </div>
                             <button class="btn btn-primary btn-lg btn-block" type="submit">Entrar</button>
