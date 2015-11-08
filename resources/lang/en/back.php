@@ -24,6 +24,8 @@ return [
         'dashboard' => ' Dashboard',
         'administration' => ' Administration',
         'users' => ' Users',
+        'newUser' => 'New User',
+        'editUser' => 'Edit User',
         'roles' => ' Roles',
     ],
 
@@ -48,6 +50,16 @@ return [
     'user' => [
         'firstName' => 'First Name',
         'lastName' => 'Last Name',
+        'email' => 'E-Mail (username)',
+        'password' => 'Password',
+        'confirmPassword' => 'Confirm Password',
+        'oldPassword' => 'Old Password',
+        'newPassword' => 'New Password',
+    ],
+
+    // ### Role
+    'role' => [
+        'role' => 'role',
     ],
 
     // ### Tooltips
@@ -64,6 +76,15 @@ return [
         'users' => 'Users',
         'newUser' => 'Add New User',
         'newRole' => 'Add New Role',
+
+    ],
+
+    // ### Actions
+    'actions' => [
+        'cancel' => 'Cancel',
+        'save' => 'Save',
+        'update' => 'Update',
+        'changePassword' => 'Change Password',
 
     ],
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.23 (LTS) on 2015-11-05.
+ * Generated for Laravel 5.1.23 (LTS) on 2015-11-08.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12164,6 +12164,32 @@ namespace {
          */
         public static function date($name, $value = null, $options = array()){
             return \Collective\Html\FormBuilder::date($name, $value, $options);
+        }
+        
+        /**
+         * Create a datetime input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function datetime($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::datetime($name, $value, $options);
+        }
+        
+        /**
+         * Create a datetime-local input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return string 
+         * @static 
+         */
+        public static function datetimeLocal($name, $value = null, $options = array()){
+            return \Collective\Html\FormBuilder::datetimeLocal($name, $value, $options);
         }
         
         /**

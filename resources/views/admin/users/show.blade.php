@@ -31,7 +31,7 @@
 						<div class="col-md-9">
 							<!--- E-Mail Field --->
 							<div class="form-group">
-								<label for="email">{{ trans('back.lists.email') }}</label>
+								<label for="email">{{ trans('back.user.email') }}</label>
 								<input type="text" class="form-control" id="email" placeholder="{{$user->email}}"
 								       disabled>
 							</div>

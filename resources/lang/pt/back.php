@@ -24,6 +24,8 @@ return [
         'dashboard' => ' Dashboard',
         'administration' => ' Administração',
         'users' => ' Utilizadores',
+        'newUser' => 'Novo Utilizador',
+        'editUser' => 'Editar Utilizador',
         'roles' => ' Funções',
     ],
 
@@ -46,10 +48,18 @@ return [
 
     // ### User
     'user' => [
-        'firstName' => 'Primeiro Nome',
-        'lastName' => 'Último Nome',
-        'email' => 'E-Mail',
-        'status' => 'Ativo',
+        'firstName' => 'Nome',
+        'lastName' => 'Apelido',
+        'email' => 'E-Mail (Nome de Utilizador)',
+        'password' => 'Palavra-Chave',
+        'confirmPassword' => 'Confirme Palavra-Chave',
+        'oldPassword' => 'Palavra-Chave Antiga',
+        'newPassword' => 'Nova Palavra-Chave',
+    ],
+
+    // ### Role
+    'role' => [
+        'role' => 'Função',
     ],
 
     // ### Tooltips
@@ -65,6 +75,15 @@ return [
         'users' => 'Utilizadores',
         'newUser' => 'Novo Utilizador',
         'newRole' => 'Nova Função',
+
+    ],
+
+    // ### Actions
+    'actions' => [
+        'cancel' => 'Cancelar',
+        'save' => 'Guardar',
+        'update' => 'Alterar',
+        'changePassword' => 'Alterar Palavra-Chave',
 
     ],
 

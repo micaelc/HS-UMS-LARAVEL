@@ -72,17 +72,16 @@ class ACLTableSeeder extends Seeder
             'firstName' => 'Admin',
             'lastName' => 'User',
             'email' => 'admin@example.com',
-            'password' => bcrypt('xptoxpto'),
+            'password' => 'xptoxpto',
             'status' => true
         ]);
         $user1->attachRole($role1);
-        $user1->attachRole($role2);
 
         $user2 = User::create([
             'firstName' => 'Manager',
             'lastName' => 'User',
             'email' => 'manager@example.com',
-            'password' => bcrypt('xptoxpto'),
+            'password' => 'xptoxpto',
             'status' => true
         ]);
         $user2->attachRole($role2);
@@ -91,7 +90,7 @@ class ACLTableSeeder extends Seeder
             'firstName' => 'Registered',
             'lastName' => 'User',
             'email' => 'user@example.com',
-            'password' => bcrypt('xptoxpto'),
+            'password' => 'xptoxpto',
             'status' => true
         ]);
         $user3->attachRole($role3);

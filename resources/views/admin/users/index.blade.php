@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="panel-body">
 					<div class="col-md-12">
-						<a class="btn btn-primary pull-right" href="#">
+						<a class="btn btn-primary pull-right" href="{{ route('users.create') }}">
 							<i class="fa fa-plus fa-fw"></i> {{ trans('back.headers.newUser') }}
 						</a>
 					</div>
@@ -44,7 +44,7 @@
 										<td>{{$user->created_at}}</td>
 										<td>{{$user->updated_at}}</td>
 										<td>
-											<a href="#" data-toggle="tooltip"
+											<a href="{{route('users.edit',$user->id)}}" data-toggle="tooltip"
 											   title="{{ trans('back.tooltip.edit') }}"> <i
 														class="fa fa-pencil fa-fw"> </i></a>
 											<button id="change-status" class="button-nostyle" value="{{$user->id}}"

@@ -36,7 +36,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="{{route('admin:admin')}}"><img src="../img/dummy_logo_admin.png"></a>
+			<a class="navbar-brand" href="{{route('admin:admin')}}"><img src="/img/dummy_logo_admin.png"></a>
 		</div>
 		<!-- /.navbar-header -->
 

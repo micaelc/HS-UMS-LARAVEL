@@ -23,7 +23,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin:'], function () {
 });
 
 Route::resource('roles', 'RoleController', ['only' => ['index', 'show']]);
-Route::resource('users', 'UserController', ['only' => ['index', 'show']]);
+Route::resource('users', 'UserController');
 
 
 // ### Auth Routes ###
