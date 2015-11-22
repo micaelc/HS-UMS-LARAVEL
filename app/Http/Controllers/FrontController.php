@@ -18,4 +18,5 @@ class FrontController extends Controller
         $title = trans('app.pages.home');
         return view('front.home', compact('title'));
     }
+
 }

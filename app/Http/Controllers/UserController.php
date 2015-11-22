@@ -7,6 +7,9 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Mail\Message;
+use Mail;
+use Password;
 use Toastr;
 use Validator;
 
@@ -29,7 +32,7 @@ class UserController extends Controller
         $title = trans('back.pages.users');
         $users = User::with('roles')->get();
 
-        return view('admin.users.index', compact('title','users' ));
+        return view('admin.users.index', compact('title', 'users'));
 
     }
 
@@ -48,7 +51,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -62,9 +65,6 @@ class UserController extends Controller
             'firstName' => 'required|min:3|max:30',
             'lastName' => 'required|min:3|max:30',
             'role_id' => 'required',
-            'password' => 'required|min:4',
-            'confirmPassword' => 'same:password',
-
         ]);
 
         if ($validator->fails()) {
@@ -77,7 +77,21 @@ class UserController extends Controller
                 ->withInput();
         } else {
             $user = User::create($request->all());
-            $user->roles()->attach($request->role_id);
+            $user->attachRole(Role::findOrNew($request->role_id));
+
+            // Send e-mail to setup password
+            $response = Password::sendResetLink($request->only('email'), function (Message $message) {
+                $message->subject(trans('email.password.subject'));
+            });
+            switch ($response) {
+                case Password::RESET_LINK_SENT:
+                    Toastr::success(trans('messages.success.definePasswordEmail'), $title);
+                    break;
+                case Password::INVALID_USER:
+                    Toastr::warning(trans('messages.warning.definePasswordEmail'), $title);
+                    break;
+            }
+
             Toastr::success(trans('messages.success.newUser'), $title);
             return redirect()->route('users.index');
         }
@@ -87,24 +101,26 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function show($id)
+    public
+    function show($id)
     {
         $title = trans('back.pages.users');
         $user = User::with('roles')->findOrFail($id);
 
-        return view('admin.users.show', compact('title','user' ));
+        return view('admin.users.show', compact('title', 'user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         $title = trans('back.pages.editUser');
         $roles = Role::all(['display_name', 'id'])->lists('display_name', 'id');
@@ -115,11 +131,12 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         $user = User::findOrNew($id);
 
@@ -128,8 +145,6 @@ class UserController extends Controller
             'firstName' => 'required|min:3|max:30',
             'lastName' => 'required|min:3|max:30',
             'role_id' => 'required',
-            'password' => 'required|min:4',
-            'confirmPassword' => 'same:password',
 
         ];
 
@@ -142,7 +157,7 @@ class UserController extends Controller
                 ->withInput();
         } else {
 
-            $user->update($request->all());
+            $user->update($request->all(), $id);
             return redirect()->route('users.index');
         }
     }
@@ -150,10 +165,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }

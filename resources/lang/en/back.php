@@ -12,7 +12,12 @@ return [
     'login' => [
         'email-address' => 'Email address',
         'password' => 'Password',
+        'confirmPassword' => 'Confirm Password',
         'remember' => 'Remember me',
+        'forgotPassword' => 'Forgotten your Password?',
+        'login' => 'Login',
+        'sendResetLink' => 'Send Reset Link',
+        'resetPassword' => 'Reset Password',
     ],
 
     // ### Top bar
@@ -21,6 +26,9 @@ return [
 
     // ### Pages
     'pages' => [
+        'login' => 'Login',
+        'forgotPassword' => 'Forgot Password',
+        'resetPassword' => 'Reset Password',
         'dashboard' => ' Dashboard',
         'administration' => ' Administration',
         'users' => ' Users',
@@ -84,6 +92,8 @@ return [
         'cancel' => 'Cancel',
         'save' => 'Save',
         'update' => 'Update',
+        'submit' => 'Submit',
+        'reset' => 'Reset',
         'changePassword' => 'Change Password',
 
     ],

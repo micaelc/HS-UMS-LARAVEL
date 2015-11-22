@@ -17,6 +17,7 @@ return [
 
     // ### Warning
     'warning' => [
+        'definePasswordEmail' => 'Something went wrong/n sending the e-mail to the user!'
 
     ],
 
@@ -24,6 +25,7 @@ return [
     // ### Success
     'success' => [
         'newUser' => 'User created with success',
+        'definePasswordEmail' => 'E-mail sent to user to define Password'
     ],
 
 

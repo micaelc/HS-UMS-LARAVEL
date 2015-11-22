@@ -8,3 +8,17 @@ body {
   display: block;
   margin: 0 auto;
 }
+#page-item {
+  display: block;
+  float: right;
+  font-size: 1.3em;
+  padding-right: 10px;
+  color: #428bca;
+  font-weight: 700;
+}
+.login-panel {
+  margin-top: 25%;
+}
+.top-padding-10 {
+  padding-top: 10px;
+}

@@ -11,8 +11,12 @@ return [
     // ### Login
     'login' => [
         'email-address' => 'Endereço de Email',
-        'password' => 'Palavra Chave',
+        'password' => 'Palavra-Chave',
+        'confirmPassword' => 'Confirme Palavra-Chave',
         'remember' => 'Lembrar',
+        'forgotPassword' => 'Esqueceu a sua Palavra-Chave?',
+        'login' => 'Entrar',
+        'sendResetLink' => 'submeter',
     ],
 
     // ### Top bar
@@ -21,6 +25,9 @@ return [
 
     // ### Pages
     'pages' => [
+        'login' => 'Login',
+        'forgotPassword' => 'Palavra-Chave Esquecida',
+        'resetPassword' => 'Redefinir Palavra-Chave',
         'dashboard' => ' Dashboard',
         'administration' => ' Administração',
         'users' => ' Utilizadores',
@@ -55,6 +62,7 @@ return [
         'confirmPassword' => 'Confirme Palavra-Chave',
         'oldPassword' => 'Palavra-Chave Antiga',
         'newPassword' => 'Nova Palavra-Chave',
+        'resetPassword' => 'Redefinir Palavra-Chave',
     ],
 
     // ### Role
@@ -83,6 +91,8 @@ return [
         'cancel' => 'Cancelar',
         'save' => 'Guardar',
         'update' => 'Alterar',
+        'submit' => 'Submeter',
+        'reset' => 'Redefinir',
         'changePassword' => 'Alterar Palavra-Chave',
 
     ],
