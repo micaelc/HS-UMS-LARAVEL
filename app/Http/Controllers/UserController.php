@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\User;
+use Hash;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Mail\Message;
+use Illuminate\Support\Str;
 use Mail;
 use Password;
 use Toastr;
@@ -57,7 +59,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $title = trans('back.pages.newUser');
-        $request['status'] = true;
+        $request['status'] = false;
+        $request['password'] = Hash::make(Str::random(15));
 
         // validate request
         $validator = Validator::make($request->all(), [

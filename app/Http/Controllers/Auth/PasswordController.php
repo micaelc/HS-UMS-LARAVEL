@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Facades\Auth;
 
 class PasswordController extends Controller
 {
@@ -20,7 +21,7 @@ class PasswordController extends Controller
 
     use ResetsPasswords;
 
-    protected $redirectTo = '/dashboard';
+    protected $redirectTo = 'admin/dashboard';
 
 
     /**
@@ -31,5 +32,22 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->password = bcrypt($password);
+        $user->status = true;
+
+        $user->save();
+
+        Auth::login($user);
     }
 }
