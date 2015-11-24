@@ -10,6 +10,7 @@ return [
 
     // ### Password Reset
     'password' => [
-        'subject' => 'Reset Password',
+        'defineSubject' => 'Your Password Define Link',
+        'resetSubject' => 'Your Password Reset Link',
     ]
 ];

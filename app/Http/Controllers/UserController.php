@@ -84,7 +84,7 @@ class UserController extends Controller
 
             // Send e-mail to setup password
             $response = Password::sendResetLink($request->only('email'), function (Message $message) {
-                $message->subject(trans('email.password.subject'));
+                $message->subject(trans('email.password.defineSubject'));
             });
             switch ($response) {
                 case Password::RESET_LINK_SENT:

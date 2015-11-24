@@ -13,6 +13,7 @@
 	<link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/login.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/font-awesome.css') }}" rel="stylesheet">
+	<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,10 +63,11 @@
 	</div>
 
 </div>
-
 <!-- Vendor.js -->
 <script src="{{ asset('/js/jquery.js') }}"></script>
-
+<!-- Toaster JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::render() !!}
 </body>
 
 </html>

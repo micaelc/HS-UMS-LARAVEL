@@ -10,6 +10,7 @@ return [
 
     // ### Password Reset
     'password' => [
-        'subject' => 'Definir Palavra-Chave',
+        'defineSubject' => 'O seu link para definir a Palavra-Chave',
+        'resetSubject' => 'O seu link para redefinir a Palavra-Chave',
     ]
 ];
