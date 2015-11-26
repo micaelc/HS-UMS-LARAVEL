@@ -47,7 +47,7 @@
 											<a href="{{route('users.edit',$user->id)}}" data-toggle="tooltip"
 											   title="{{ trans('back.tooltip.edit') }}"> <i
 														class="fa fa-pencil fa-fw"> </i></a>
-											<button id="change-status" class="button-nostyle" value="{{$user->id}}"
+											<button id="change-status" class="button-nostyle" value="{{$user->id}}" onClick="changeStatus({{$user->id}})"
 											        data-toggle="tooltip" title="{{ trans('back.tooltip.activate') }}">
 												@if ($user->status)
 													<i class="fa fa-ban fa-fw"> </i>

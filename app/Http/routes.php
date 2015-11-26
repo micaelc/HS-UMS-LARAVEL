@@ -11,22 +11,6 @@
 |
 */
 
-
-// ### Front Routes ###
-Route::get('/', ['as' => 'home', 'uses' => 'FrontController@home']);
-
-
-// ### Back Routes ###
-Route::group(['prefix' => 'admin', 'as' => 'admin:'], function () {
-    Route::get('/', ['as' => 'admin','uses' => 'BackController@dashboard']);
-    Route::get('/dashboard', ['as' => 'dashboard','uses' => 'BackController@dashboard']);
-
-});
-
-Route::resource('roles', 'RoleController', ['only' => ['index', 'show']]);
-Route::resource('users', 'UserController');
-
-
 // ### Auth Routes ###
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
@@ -39,3 +23,23 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+
+// ### Front Routes ###
+Route::get('/', ['as' => 'home', 'uses' => 'FrontController@home']);
+
+
+// ### Back Routes ###
+Route::group(['prefix' => 'admin', 'as' => 'admin:'], function () {
+    Route::get('/', ['as' => 'admin','uses' => 'BackController@dashboard']);
+    Route::get('/dashboard', ['as' => 'dashboard','uses' => 'BackController@dashboard']);
+
+});
+
+Route::post('users/activate', 'UserController@postActivate');
+
+Route::resource('roles', 'RoleController', ['only' => ['index', 'show']]);
+Route::resource('users', 'UserController');
+
+
+

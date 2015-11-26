@@ -9,9 +9,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
-use Mail;
 use Password;
+use Response;
 use Toastr;
 use Validator;
 
@@ -175,5 +176,29 @@ class UserController extends Controller
     function destroy($id)
     {
         //
+    }
+
+    /**
+     * @return mixed
+     */
+    public function postActivate()
+    {
+        $title = 'Utilizadores';
+
+        $id = Input::get('userId');
+
+        $user = User::findOrNew($id);
+
+        if ($user->status) {
+            $user->status = false;
+            $user->save();
+            Toastr::success('Utilizador desativado com sucesso!', $title);
+        } else {
+            $user->status = true;
+            $user->save();
+            Toastr::success('Utilizador ativado com sucesso!', $title);
+        }
+
+        return Response::json(['success' => 'Success']);
     }
 }
