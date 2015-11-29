@@ -94,6 +94,7 @@ return [
         'update' => 'Update',
         'submit' => 'Submit',
         'reset' => 'Reset',
+        'resetPassword' => 'Reset Password',
         'changePassword' => 'Change Password',
 
     ],

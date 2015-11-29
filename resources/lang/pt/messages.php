@@ -29,6 +29,8 @@ return [
         'newUser' => 'Utilizador criado com sucesso.',
         'definePasswordEmail' => 'E-mail de definição da Palavra-Chave /n enviado com sucesso!',
         'forgotPassword' => 'O E-mail com o link para redefinir a sua \nPalavra-Chave foi enviado com sucesso! \nPor favor verifique o seu e-mail.',
+        'activated' => 'Utilizador ativado com sucesso',
+        'deactivated' => 'Utilizador desativado com sucesso',
     ],
 
 

@@ -39,11 +39,8 @@
 								<!--- Role DropDown List Field --->
 								<div class="form-group">
 									{!! Form::label('role_id', trans('back.role.role')) !!}
-									{!! Form::select('role_id', $roles, null, ['class' => 'form-control']) !!}
+									{!! Form::select('role_id', $roles, $role->id, ['class' => 'form-control']) !!}
 								</div>
-							</div>
-							<div class="col-md-6">
-
 							</div>
 						</div>
 					</div>

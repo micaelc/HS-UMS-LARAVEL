@@ -93,6 +93,7 @@ return [
         'update' => 'Alterar',
         'submit' => 'Submeter',
         'reset' => 'Redefinir',
+        'resetPassword' => 'Redifinir Palavra-Chave',
         'changePassword' => 'Alterar Palavra-Chave',
 
     ],

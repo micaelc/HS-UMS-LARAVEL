@@ -5,6 +5,9 @@ $.ajaxSetup({
 $(function () {
     $('#side-menu').metisMenu();
 
+    // enable tooltips
+    $('[data-toggle="tooltip"]').tooltip();
+
 });
 
 //Loads the correct sidebar on window load,
@@ -38,20 +41,22 @@ $(function () {
     }
 });
 
-$(function () {
-
-    // enable tooltips
-    $('[data-toggle="tooltip"]').tooltip();
-
-
-
-});
-
 function changeStatus(id) {
     $.ajax({
         url: 'users/activate',
         type: 'post',
         data: {'userId': id},
+        success: function () {
+            location.reload(true);
+        }
+    });
+}
+
+function resetPassword(id) {
+    $.ajax({
+        url: 'users/resetPassword',
+        type: 'post',
+        data: {'id': id},
         success: function () {
             location.reload(true);
         }

@@ -129,7 +129,8 @@ class UserController extends Controller
         $title = trans('back.pages.editUser');
         $roles = Role::all(['display_name', 'id'])->lists('display_name', 'id');
         $user = User::findOrNew($id);
-        return view('admin.users.edit', compact('user', 'title', 'roles'));
+        $role = $user->roles()->get()->first();
+        return view('admin.users.edit', compact('user', 'title', 'roles', 'role'));
     }
 
     /**
@@ -143,13 +144,13 @@ class UserController extends Controller
     function update(Request $request, $id)
     {
         $user = User::findOrNew($id);
+        $roles = Role::all(['display_name', 'id'])->lists('display_name', 'id');
 
         $rules = [
             'email' => 'required|unique:users,email,' . $id,
             'firstName' => 'required|min:3|max:30',
             'lastName' => 'required|min:3|max:30',
             'role_id' => 'required',
-
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -160,8 +161,9 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         } else {
-
             $user->update($request->all(), $id);
+            $this->detachAllRoles($user);
+            $user->attachRole(Role::findOrNew($request->role_id));
             return redirect()->route('users.index');
         }
     }
@@ -183,8 +185,6 @@ class UserController extends Controller
      */
     public function postActivate()
     {
-        $title = 'Utilizadores';
-
         $id = Input::get('userId');
 
         $user = User::findOrNew($id);
@@ -192,13 +192,26 @@ class UserController extends Controller
         if ($user->status) {
             $user->status = false;
             $user->save();
-            Toastr::success('Utilizador desativado com sucesso!', $title);
+            Toastr::success(trans('messages.success.deactivated'), trans('back.headers.users'));
         } else {
             $user->status = true;
             $user->save();
-            Toastr::success('Utilizador ativado com sucesso!', $title);
+            Toastr::success(trans('messages.success.activated'), trans('back.headers.users'));
         }
 
         return Response::json(['success' => 'Success']);
     }
+
+    /**
+     * Function do remove all attached roles to a given user
+     *
+     * @param $user
+     */
+    protected function detachAllRoles($user){
+        $roles = Role::all();
+        foreach ($roles as $role) {
+            $user->detachRole($role);
+        }
+    }
+
 }
