@@ -40,7 +40,7 @@
 												<span class="label label-primary">{{$role->name}}</span>
 											@endforeach
 										</td>
-										<td>{{$user->status ? trans('back.lists.active') : trans('back.lists.inactive') }}</td>
+										<td><span class="{{$user->status ? "label label-success": "label label-danger"}}">{{$user->status ? trans('back.lists.active') : trans('back.lists.inactive') }}</span></td>
 										<td>{{$user->created_at}}</td>
 										<td>{{$user->updated_at}}</td>
 										<td>

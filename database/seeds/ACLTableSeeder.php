@@ -39,6 +39,13 @@ class ACLTableSeeder extends Seeder
             'description' => 'Ability to View user profile'
         ]);
 
+        $perm4 = Permission::create([
+            'context' => 'blog',
+            'name' => 'post_create',
+            'display_name' => 'Create Post',
+            'description' => 'Ability to Create Blog Post'
+        ]);
+
         /**
          *   R O L E S
          */

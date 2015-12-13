@@ -12,7 +12,7 @@
 			<div class="row">
 				<div class="panel-body">
 					<div class="col-md-12">
-						<a class="btn btn-primary pull-right" href="#">
+						<a class="btn btn-primary pull-right" href="{{ route('roles.create') }}">
 							<i class="fa fa-plus fa-fw"></i> {{ trans('back.headers.newRole') }}
 						</a>
 					</div>

@@ -52,13 +52,3 @@ function changeStatus(id) {
     });
 }
 
-function resetPassword(id) {
-    $.ajax({
-        url: 'users/resetPassword',
-        type: 'post',
-        data: {'id': id},
-        success: function () {
-            location.reload(true);
-        }
-    });
-}

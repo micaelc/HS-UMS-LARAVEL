@@ -34,6 +34,7 @@ return [
         'newUser' => 'Novo Utilizador',
         'editUser' => 'Editar Utilizador',
         'roles' => ' Funções',
+        'newRole' => 'Nova Função',
     ],
 
     // ### Lists
@@ -68,6 +69,9 @@ return [
     // ### Role
     'role' => [
         'role' => 'Função',
+        'name' => 'Abreviatura',
+        'display_name' => 'Nome',
+        'description' => 'Descrição',
     ],
 
     // ### Tooltips

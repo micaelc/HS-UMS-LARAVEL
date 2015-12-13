@@ -102,6 +102,10 @@ return [
         'email' => 'Endereço de E-Mail',
         'password' => 'Palavra-Chave',
         'confirmPassword' => 'Confime Palavra-Chave',
-        'oldPassword' => 'Palavra-Chave Antiga'
+        'oldPassword' => 'Palavra-Chave Antiga',
+        'description' => 'Descrição',
+        'display_name' => 'Nome',
+        'name' => 'Abreviatura',
+
     ],
 ];

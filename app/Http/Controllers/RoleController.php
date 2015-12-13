@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use App\Permission;
 use App\Role;
 use App\User;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use Illuminate\Support\Facades\Log;
 use Kamaln7\Toastr\Facades\Toastr;
+use Validator;
 
 class RoleController extends Controller
 {
@@ -37,7 +38,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $title = trans('back.pages.newRole');
+        $permList = $this->permissionList();
+
+        return view('admin.roles.create', compact('title', 'permList'));
     }
 
     /**
@@ -48,7 +52,37 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $title = trans('back.pages.newRole');
+        // validate request
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:roles,name|min:3|max:10',
+            'display_name' => 'required|min:3|max:30',
+            'description' => 'required|min:3|max:250',
+        ]);
+
+        if ($validator->fails()) {
+
+            Toastr::error(trans('messages.error.msg_validation'), $title);
+
+            return redirect()
+                ->route('roles.create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+
+            $permissions = $request['permissions'];
+
+            $role = Role::create($request->all());
+
+            if(is_array($permissions) && count($permissions) > 1){
+                $role->attachPermissions($permissions);
+            }
+
+            Toastr::success(trans('messages.success.newRole'), $title);
+            return redirect()->route('roles.index');
+        }
+
     }
 
     /**
@@ -114,15 +148,18 @@ class RoleController extends Controller
     private function rolePermissionList ($role){
 
         $permList = Permission::all()->sortBy('name');
-
         foreach ($permList as $perm){
             if ($role->hasPermission($perm->name)){
                 $perm->checked = true;
             }
         }
-
         $permList = $permList->groupBy('context')->sortBy('name');
+        return $permList;
+    }
+    private function permissionList (){
 
+        $permList = Permission::all()->sortBy('name');
+        $permList = $permList->groupBy('context')->sortBy('name');
         return $permList;
     }
 }

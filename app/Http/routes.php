@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin:'], function () {
 
 Route::post('users/activate', 'UserController@postActivate');
 
-Route::resource('roles', 'RoleController', ['only' => ['index', 'show']]);
+Route::resource('roles', 'RoleController');
 Route::resource('users', 'UserController');
 
 
