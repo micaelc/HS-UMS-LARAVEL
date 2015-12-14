@@ -38,7 +38,7 @@
 										<td>{{$role->created_at}}</td>
 										<td>{{$role->updated_at}}</td>
 										<td>
-											<a href="#" data-toggle="tooltip"
+											<a href="{{route('roles.edit',$role->id)}}" data-toggle="tooltip"
 											   title="{{ trans('back.tooltip.edit') }}"><i
 														class="fa fa-pencil fa-fw"></i></a>
 											<a href="{{route('roles.show',$role->id)}}" data-toggle="tooltip"

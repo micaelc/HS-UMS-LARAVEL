@@ -36,6 +36,7 @@ return [
         'editUser' => 'Edit User',
         'roles' => ' Roles',
         'newRole' => 'New Role',
+        'editRole' => 'Edit Role',
     ],
 
     // ### Lists

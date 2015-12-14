@@ -72,12 +72,8 @@ class RoleController extends Controller
         } else {
 
             $permissions = $request['permissions'];
-
             $role = Role::create($request->all());
-
-            if(is_array($permissions) && count($permissions) > 1){
-                $role->attachPermissions($permissions);
-            }
+            $role->savePermissions($permissions);
 
             Toastr::success(trans('messages.success.newRole'), $title);
             return redirect()->route('roles.index');
@@ -96,7 +92,6 @@ class RoleController extends Controller
         $title = trans('back.pages.roles');
         $role = Role::findOrNew($id);
         $users = $this->usersWithRole($role);
-        //$permissions = $role->perms;
         $permList = $this->rolePermissionList($role);
 
         return view('admin.roles.show', compact('role', 'permList', 'users', 'title'));
@@ -110,7 +105,11 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = trans('back.pages.editRole');
+        $role = Role::findOrNew($id);
+        $permList = $this->rolePermissionList($role);
+
+        return view('admin.roles.edit', compact('role', 'permList', 'title'));
     }
 
     /**
@@ -122,7 +121,36 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $title = trans('back.pages.editRole');
+        $role = Role::findOrNew($id);
+
+        // validate request
+
+        $rules = [
+            'name' => 'required|min:3|max:10|unique:roles,name,' . $id,
+            'display_name' => 'required|min:3|max:30',
+            'description' => 'required|min:3|max:250',
+        ];
+
+        $validator = Validator::make($request->all(), $rules );
+
+        if ($validator->fails()) {
+
+            Toastr::error(trans('messages.error.msg_validation'), $title);
+
+            return redirect()
+                ->route('roles.create')
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+
+            $permissions = $request['permissions'];
+            $role->update($request->all(), $id);
+            $role->savePermissions($permissions);
+
+            Toastr::success(trans('messages.success.updatedRole'), $title);
+            return redirect()->route('roles.index');
+        }
     }
 
     /**

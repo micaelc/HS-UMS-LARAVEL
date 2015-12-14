@@ -143,8 +143,9 @@ class UserController extends Controller
     public
     function update(Request $request, $id)
     {
+        $title = trans('back.pages.editUser');
+
         $user = User::findOrNew($id);
-        $roles = Role::all(['display_name', 'id'])->lists('display_name', 'id');
 
         $rules = [
             'email' => 'required|unique:users,email,' . $id,
@@ -164,6 +165,8 @@ class UserController extends Controller
             $user->update($request->all(), $id);
             $this->detachAllRoles($user);
             $user->attachRole(Role::findOrNew($request->role_id));
+
+            Toastr::success(trans('messages.success.updatedUser'), $title);
             return redirect()->route('users.index');
         }
     }
