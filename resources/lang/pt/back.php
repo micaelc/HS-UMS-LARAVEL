@@ -23,6 +23,11 @@ return [
     'user-profile' => ' Perfil',
     'logout' => ' Sair',
 
+    // ### Dashboard
+    'dashboard' =>[
+        'viewUsers' => 'Ver Utilizadores'
+    ],
+
     // ### Pages
     'pages' => [
         'login' => 'Login',

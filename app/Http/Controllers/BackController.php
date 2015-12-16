@@ -2,6 +2,7 @@
 
     namespace App\Http\Controllers;
 
+    use App\User;
     use Illuminate\Http\Request;
 
     use App\Http\Requests;
@@ -17,7 +18,10 @@
         public function dashboard()
         {
             $title = "Dashboard";
-            return view('back.dashboard', compact('title'));
+            $numberUsers = User::all()->count();
+
+
+            return view('back.dashboard', compact('title', 'numberUsers'));
         }
 
     }

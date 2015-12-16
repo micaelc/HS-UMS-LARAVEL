@@ -24,6 +24,11 @@ return [
     'user-profile' => ' User Profile',
     'logout' => ' Logout',
 
+    // ### Dashboard
+    'dashboard' =>[
+        'viewUsers' => 'View Users'
+    ],
+
     // ### Pages
     'pages' => [
         'login' => 'Login',
