@@ -1,54 +1,42 @@
 # Base Project with user management
+### BETA  v0.9
 
-#### Work in Progress
-#### v0.1
+## TODO
 
-## Added Dependencies to composer.json
+* Use created Permissions to validate actions;
+* Dynamic Dashboard in Back-End;
+
+
+## DONE
+
+### Design
+
+* Front-End Template (http://startbootstrap.com/template-overviews/heroic-features/)
+* Back-End Template (http://startbootstrap.com/template-overviews/sb-admin-2/)
+
+### Front-End
+
+* Nothing Relevant :)))
+
+### Back-End
+
+* USERS (Add/Edit/Show/Delete/Profile):
+* ROLES (Add/Edit/show/Delete):
+* PERMISSIONS (Added only through database seed)
+
+### Added Dependencies to composer.json
 
 * Role-based Permissions for Laravel 5 - https://github.com/Zizaco/entrust
 * Forms and HTML - http://laravelcollective.com/
 * Easy toastr notifications for Laravel 5 - https://github.com/oriceon/toastr-5-laravel
 
+### Install
+
+inside the project folder and after creating a .env file with the database configs and the default role definition
 
 ```php
-"zizaco/entrust": "dev-laravel-5",
-"laravelcollective/html": "5.1.*",
-"oriceon/toastr-5-laravel": "dev-master"
-"barryvdh/laravel-ide-helper": "^2.1"
-"doctrine/dbal": "~2.3"
+DEFAULT_ROLE = 3
 ```
-
-### added to app.php
-
-Providers
-
-```php
-/*
-* 3rd Party Service Providers...
-*/
-Zizaco\Entrust\EntrustServiceProvider::class,
-Collective\Html\HtmlServiceProvider::class,
-Kamaln7\Toastr\ToastrServiceProvider::class,
-Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-```
-
-Aliases
-
-```php
-/*
-* 3rd Party Aliases...
-*/
-
-'Entrust' => Zizaco\Entrust\EntrustFacade::class,
-'Carbon' => Carbon\Carbon::class,
-'Form' => Collective\Html\FormFacade::class,
-'Html' => Collective\Html\HtmlFacade::class,
-'Toastr' => Kamaln7\Toastr\Facades\Toastr::class,
-```
-
-## Install
-
-inside the project folder and after creating a .env file with the database configs
 
 you will require Node Bower and Gulp installed prior to this
 
