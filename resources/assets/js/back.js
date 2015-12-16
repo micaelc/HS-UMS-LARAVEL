@@ -52,3 +52,25 @@ function changeStatus(id) {
     });
 }
 
+function deleteRole(id) {
+    $.ajax({
+        url: 'roles/' + id,
+        type: 'delete',
+        data: {'roleId': id},
+        success: function () {
+            location.reload(true);
+        }
+    });
+}
+function deleteUser(id) {
+    $.ajax({
+        url: 'users/' + id,
+        type: 'delete',
+        data: {'userId': id},
+        success: function () {
+            location.reload(true);
+        }
+    });
+}
+
+

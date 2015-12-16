@@ -9,7 +9,9 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Input;
 use Kamaln7\Toastr\Facades\Toastr;
+use Response;
 use Validator;
 
 class RoleController extends Controller
@@ -19,6 +21,7 @@ class RoleController extends Controller
     {
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +50,7 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request  $request
+     * @param  Request $request
      * @return Response
      */
     public function store(Request $request)
@@ -84,7 +87,7 @@ class RoleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function show($id)
@@ -100,7 +103,7 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function edit($id)
@@ -115,8 +118,8 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  Request  $request
-     * @param  int  $id
+     * @param  Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
@@ -132,7 +135,7 @@ class RoleController extends Controller
             'description' => 'required|min:3|max:250',
         ];
 
-        $validator = Validator::make($request->all(), $rules );
+        $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
 
@@ -156,35 +159,53 @@ class RoleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return Response
      */
     public function destroy($id)
     {
-        //
+        $title = trans('back.pages.roles');
+        $id = Input::get('roleId');
+
+        $role = Role::findOrNew($id);
+        $usersInRole = $this->usersWithRole($role);
+        if(isset($usersInRole) && count($usersInRole) > 0){
+            Toastr::error(trans('messages.error.deleteRole'), $title);
+
+        }else {
+            $role->delete();
+            Toastr::success(trans('messages.success.deleteRole'), $title);
+        }
+
+        return Response::json(['success' => 'Success']);
+
     }
 
-    private function usersWithRole ($role){
+    private function usersWithRole($role)
+    {
 
-        $users = User::all()->filter(function ($item) use ($role){
+        $users = User::all()->filter(function ($item) use ($role) {
             return $item->hasRole($role->name);
         });
 
         return $users;
     }
 
-    private function rolePermissionList ($role){
+    private function rolePermissionList($role)
+    {
 
         $permList = Permission::all()->sortBy('name');
-        foreach ($permList as $perm){
-            if ($role->hasPermission($perm->name)){
+        foreach ($permList as $perm) {
+            if ($role->hasPermission($perm->name)) {
                 $perm->checked = true;
             }
         }
         $permList = $permList->groupBy('context')->sortBy('name');
         return $permList;
     }
-    private function permissionList (){
+
+    private function permissionList()
+    {
 
         $permList = Permission::all()->sortBy('name');
         $permList = $permList->groupBy('context')->sortBy('name');

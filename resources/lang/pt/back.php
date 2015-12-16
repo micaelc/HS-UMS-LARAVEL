@@ -79,7 +79,8 @@ return [
     'tooltip' => [
         'edit' => 'Editar',
         'show' => 'Ver',
-        'activate' => 'Ativar / Desativar'
+        'activate' => 'Ativar / Desativar',
+        'delete' => 'Apagar'
     ],
 
     // ### Headers

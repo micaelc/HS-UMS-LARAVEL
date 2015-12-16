@@ -57,6 +57,10 @@
 											<a href="{{route('users.show',$user->id)}}" data-toggle="tooltip"
 											   title="{{ trans('back.tooltip.show') }}"> <i
 														class="fa fa-eye fa-fw"> </i></a>
+											<button id="delete-user" class="button-nostyle" value="{{$role->id}}" onClick="deleteUser({{$user->id}})"
+											        data-toggle="tooltip" title="{{ trans('back.tooltip.delete') }}">
+												<i class="fa fa-trash-o fa-fw"> </i>
+											</button>
 										</td>
 									</tr>
 								@endforeach

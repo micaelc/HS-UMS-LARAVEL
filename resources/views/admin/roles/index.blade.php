@@ -44,6 +44,10 @@
 											<a href="{{route('roles.show',$role->id)}}" data-toggle="tooltip"
 											   title="{{ trans('back.tooltip.show') }}"> <i
 														class="fa fa-eye fa-fw"> </i></a>
+											<button id="delete-role" class="button-nostyle" value="{{$role->id}}" onClick="deleteRole({{$role->id}})"
+											        data-toggle="tooltip" title="{{ trans('back.tooltip.delete') }}">
+												<i class="fa fa-trash-o fa-fw"> </i>
+											</button>
 										</td>
 									</tr>
 								@endforeach

@@ -12,6 +12,7 @@ return [
     'error' => [
         'title' => 'Erro',
         'msg_validation' => 'Existem erros no formúlario. Por favor verifique!',
+        'deleteRole' => 'Existem utilizadores com esta Função atribuída \nAltere esta situação e tente novamente!',
 
     ],
 
@@ -33,7 +34,9 @@ return [
         'activated' => 'Utilizador ativado com sucesso.',
         'deactivated' => 'Utilizador desativado com sucesso.',
         'newRole' => 'Função criada com sucesso.',
-        'updatedRole' => 'Função atualizada com sucesso.'
+        'updatedRole' => 'Função atualizada com sucesso.',
+        'deleteRole' => 'Função apagada com sucesso.',
+        'deleteUser' => 'Utilizador apagado com sucesso.',
     ],
 
 

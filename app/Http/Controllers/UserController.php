@@ -180,7 +180,15 @@ class UserController extends Controller
     public
     function destroy($id)
     {
-        //
+        $title = trans('back.pages.users');
+        $id = Input::get('userId');
+
+        $user = User::findOrNew($id);
+
+        $user->delete();
+        Toastr::success(trans('messages.success.deleteUser'), $title);
+
+        return Response::json(['success' => 'Success']);
     }
 
     /**
@@ -210,7 +218,8 @@ class UserController extends Controller
      *
      * @param $user
      */
-    protected function detachAllRoles($user){
+    protected function detachAllRoles($user)
+    {
         $roles = Role::all();
         foreach ($roles as $role) {
             $user->detachRole($role);

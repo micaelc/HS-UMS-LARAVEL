@@ -79,7 +79,8 @@ return [
     'tooltip' => [
         'edit' => 'edit',
         'show' => 'Show',
-        'activate' => 'Activate / Deactivate'
+        'activate' => 'Activate / Deactivate',
+        'delete' => 'delete'
 
     ],
 

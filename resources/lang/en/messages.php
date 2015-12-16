@@ -12,6 +12,7 @@ return [
     'error' => [
         'title' => 'Error',
         'msg_validation' => 'You have error in the form. Please check it!',
+        'deleteRole' => 'There are users using this role \nPlease change those users role and try again!',
 
     ],
 
@@ -34,7 +35,9 @@ return [
         'activated' => 'User activated with success.',
         'deactivated' => 'User deactivated with success.',
         'newRole' => 'Role created with success.',
-        'updatedRole' => 'Role updated with success.'
+        'updatedRole' => 'Role updated with success.',
+        'deleteRole' => 'Role deleted with success.',
+        'deleteUser' => 'User deleted with success.',
     ],
 
 
