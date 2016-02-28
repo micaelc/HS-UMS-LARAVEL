@@ -1,8 +1,8 @@
 {
   "name": "base-project",
   "dependencies": {
-    "bootstrap-less": "~3.3.4",
-    "jquery": "~2.1.4",
-    "fontawesome": "~4.4.0"
+    "fontawesome": "~4.5.0",
+    "bootstrap-less-only": "^3.3.6",
+    "jquery": "1.11.3"
   }
 }

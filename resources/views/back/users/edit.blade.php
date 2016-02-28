@@ -35,19 +35,30 @@
 									{!! Form::text('lastName', null, ['class' => 'form-control']) !!}
 								</div>
 							</div>
-							<div class="col-md-6">
-								<!--- Role DropDown List Field --->
-								<div class="form-group">
-									{!! Form::label('role_id', trans('back.role.role')) !!}
-									{!! Form::select('role_id', $roles, $role->id, ['class' => 'form-control']) !!}
+							@if(Auth::user()->hasRole('admin'))
+								<div class="col-md-6">
+									<!--- Role DropDown List Field --->
+									<div class="form-group">
+										{!! Form::label('role_id', trans('back.role.role')) !!}
+										{!! Form::select('role_id', $roles, $role->id, ['class' => 'form-control']) !!}
+									</div>
 								</div>
-							</div>
+							@else
+								<div class="col-md-9">
+									<div class="form-group">
+										<label for="roles">{{ trans('back.role.role') }}</label>
+										<p class="form-control" disabled>
+											<span class="label label-primary">{{$role->name}}</span>
+										</p>
+									</div>
+								</div>
+							@endif
 						</div>
 					</div>
 					<div class="col-md-12 form-group">
 						<div class="pull-right">
 							<!--- Action Buttons --->
-							<a href="{{route('users.index')}}"
+							<a href="@if(Auth::user()->hasRole('admin')){{route('users.index')}}@else{{route('admin:dashboard')}}@endif "
 							   class="btn btn-default">{{trans('back.actions.cancel')}}</a>
 							{!! Form::submit(trans('back.actions.update'), ['class' => 'btn btn-primary']) !!}
 						</div>

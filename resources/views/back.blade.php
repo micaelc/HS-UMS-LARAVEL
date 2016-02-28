@@ -49,7 +49,7 @@
 				<ul class="dropdown-menu dropdown-user">
 					<li>
 						@if(Auth::user()->can(Config::get('permissions.user.profile_edit')))
-							<a href="{{ route('users.show', Auth::id()) }}"><i
+							<a href="{{ route('users.edit', Auth::id()) }}"><i
 										class="fa fa-user fa-fw"></i>{{ trans('back.user-profile') }}</a>
 						@elseif(Auth::user()->can(Config::get('permissions.user.profile_view')))
 							<a href="{{ route('users.show', Auth::id()) }}"><i
@@ -67,7 +67,7 @@
 			<!-- /.dropdown -->
 		</ul>
 		<!-- /.navbar-top-links -->
-		@include('back.sidebar')
+		@include('template.back.sidebar')
 
 	</nav>
 

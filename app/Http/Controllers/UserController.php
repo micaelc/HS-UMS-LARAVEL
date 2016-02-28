@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
 use Password;
@@ -35,7 +36,7 @@ class UserController extends Controller
         $title = trans('back.pages.users');
         $users = User::with('roles')->get();
 
-        return view('admin.users.index', compact('title', 'users'));
+        return view('back.users.index', compact('title', 'users'));
 
     }
 
@@ -48,7 +49,7 @@ class UserController extends Controller
     {
         $title = trans('back.pages.newUser');
         $roles = Role::all(['display_name', 'id'])->lists('display_name', 'id');
-        return view('admin.users.create', compact('title', 'roles'));
+        return view('back.users.create', compact('title', 'roles'));
     }
 
     /**
@@ -114,7 +115,7 @@ class UserController extends Controller
         $title = trans('back.pages.users');
         $user = User::with('roles')->findOrFail($id);
 
-        return view('admin.users.show', compact('title', 'user'));
+        return view('back.users.show', compact('title', 'user'));
     }
 
     /**
@@ -130,7 +131,7 @@ class UserController extends Controller
         $roles = Role::all(['display_name', 'id'])->lists('display_name', 'id');
         $user = User::findOrNew($id);
         $role = $user->roles()->get()->first();
-        return view('admin.users.edit', compact('user', 'title', 'roles', 'role'));
+        return view('back.users.edit', compact('user', 'title', 'roles', 'role'));
     }
 
     /**
@@ -144,30 +145,35 @@ class UserController extends Controller
     function update(Request $request, $id)
     {
         $title = trans('back.pages.editUser');
-
-        $user = User::findOrNew($id);
-
+        $user = User::with('roles')->findOrFail($id);
+        $role_id = $request['role_id'];
+        if(!isset($role_id)){
+            $role_id = $user->roles->first()->id;
+        }
         $rules = [
             'email' => 'required|unique:users,email,' . $id,
             'firstName' => 'required|min:3|max:30',
-            'lastName' => 'required|min:3|max:30',
-            'role_id' => 'required',
+            'lastName' => 'required|min:3|max:30'
         ];
 
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('users.create')
+                ->route('users.edit')
                 ->withErrors($validator)
                 ->withInput();
         } else {
             $user->update($request->all(), $id);
             $this->detachAllRoles($user);
-            $user->attachRole(Role::findOrNew($request->role_id));
+            $user->attachRole(Role::findOrNew($role_id));
 
             Toastr::success(trans('messages.success.updatedUser'), $title);
-            return redirect()->route('users.index');
+
+            if(Auth::User()->hasRole('admin')){
+                return redirect()->route('users.index');
+            }
+            return redirect()->route('admin:dashboard');
         }
     }
 

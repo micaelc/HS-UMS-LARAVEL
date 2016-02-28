@@ -31,7 +31,7 @@ class RoleController extends Controller
     {
         $roles = Role::all();
         $title = trans('back.pages.roles');
-        return view('admin.roles.index', compact('roles', 'title'));
+        return view('back.roles.index', compact('roles', 'title'));
     }
 
     /**
@@ -44,7 +44,7 @@ class RoleController extends Controller
         $title = trans('back.pages.newRole');
         $permList = $this->permissionList();
 
-        return view('admin.roles.create', compact('title', 'permList'));
+        return view('back.roles.create', compact('title', 'permList'));
     }
 
     /**
@@ -97,7 +97,7 @@ class RoleController extends Controller
         $users = $this->usersWithRole($role);
         $permList = $this->rolePermissionList($role);
 
-        return view('admin.roles.show', compact('role', 'permList', 'users', 'title'));
+        return view('back.roles.show', compact('role', 'permList', 'users', 'title'));
     }
 
     /**
@@ -112,7 +112,7 @@ class RoleController extends Controller
         $role = Role::findOrNew($id);
         $permList = $this->rolePermissionList($role);
 
-        return view('admin.roles.edit', compact('role', 'permList', 'title'));
+        return view('back.roles.edit', compact('role', 'permList', 'title'));
     }
 
     /**

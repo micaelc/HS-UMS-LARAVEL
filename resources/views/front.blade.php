@@ -26,16 +26,16 @@
 
 <body>
 
-@include('front.navigation')
+@include('template.front.navigation')
 
 <!-- Page Content -->
 <div class="container">
 
-    @include('front.header')
+    @include('template.front.header')
 
     @yield('content')
 
-    @include('front.footer')
+    @include('template.front.footer')
 
 </div>
 <!-- /.container -->

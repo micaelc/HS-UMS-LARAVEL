@@ -4,7 +4,7 @@
 
     <p>já está alterado!</p>
 
-    <p><a href="#" class="btn btn-primary btn-large">Call to action!</a>
+    <p><a href="{{ route('admin:admin') }}" class="btn btn-primary btn-large">Call to action!</a>
     </p>
 </header>
 
